@@ -1,0 +1,30 @@
+{
+  "app": {
+    "bundleName": "com.github.paolorotolo.expandableheightlistview",
+    "vendor": "tr",
+    "version": {
+      "code": 1,
+      "name": "1.0.0"
+    },
+    "apiVersion": {
+      "compatible": 5,
+      "target": 5,
+      "releaseType": "Beta1"
+    }
+  },
+  "deviceConfig": {
+  },
+  "module": {
+    "package": "com.github.paolorotolo.expandableheightlistview",
+    "deviceType": [
+      "phone",
+      "tv",
+      "tablet"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "library",
+      "moduleType": "har"
+    }
+  }
+}

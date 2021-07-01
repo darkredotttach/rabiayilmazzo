@@ -1,0 +1,43 @@
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:bottom_padding="$float:activity_vertical_margin"
+    ohos:left_padding="$float:activity_horizontal_margin"
+    ohos:right_padding="$float:activity_horizontal_margin"
+    ohos:top_padding="$float:activity_vertical_margin"
+    >
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="vertical">
+
+        <Button
+            ohos:id="$+id:bt_default"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:background_element="#D9D9D9"
+            ohos:bottom_padding="5vp"
+            ohos:layout_alignment="horizontal_center"
+            ohos:left_padding="8vp"
+            ohos:margin="8vp"
+            ohos:right_padding="8vp"
+            ohos:text="Try Default Listview"
+            ohos:text_size="14fp"
+            ohos:top_padding="5vp"/>
+
+        <Button
+            ohos:id="$+id:bt_expandable"
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:background_element="#D9D9D9"
+            ohos:bottom_padding="5vp"
+            ohos:layout_alignment="horizontal_center"
+            ohos:left_padding="8vp"
+            ohos:margin="8vp"
+            ohos:right_padding="8vp"
+            ohos:text="Try Expandable ListView"
+            ohos:text_size="14fp"/>
+    </DirectionalLayout>
+</DependentLayout>

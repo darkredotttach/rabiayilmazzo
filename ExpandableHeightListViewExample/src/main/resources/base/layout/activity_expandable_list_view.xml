@@ -1,0 +1,32 @@
+<ScrollView
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent">
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="vertical"
+        ohos:padding="16vp">
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:padding="8vp"
+            ohos:text="$string:scroll"
+            ohos:text_weight="2"/>
+
+        <Text
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:padding="8vp"
+            ohos:text="@string/lorem_ipsum"/>
+
+        <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+            ohos:id="$+id:expandable_listview"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:padding="8vp">
+        </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
+    </DirectionalLayout>
+</ScrollView>

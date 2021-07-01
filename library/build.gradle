@@ -1,19 +1,18 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+apply plugin: 'com.huawei.ohos.library'
+//apply from: '../upload.gradle'
+rootProject.ext {
+    DEFAULT_GROUP_ID = 'com.gitee.chinasoft_ohos' //固定
+    DEFAULT_ARTIFACT_ID = 'expandableHeightListView' //项目ID，填写项目名称或模块名称
+    DEFAULT_VERSION = '0.0.1-SNAPSHOT' //版本号，发新版本时修改。未通过验收的需要发布SNAPSHOT版本，即在版本号末尾带上SNAPSHOT
+}
+ohos {
+    compileSdkVersion 5
+    defaultConfig {
+        compatibleSdkVersion 5
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-    }
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
 }
