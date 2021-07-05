@@ -1,10 +1,14 @@
 package paolorotolo.github.com.expandableheightlistviewexample;
 
+import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.ListContainer;
+import ohos.agp.components.Text;
+import ohos.agp.text.Font;
 import ohos.multimodalinput.event.KeyEvent;
+import paolorotolo.github.com.expandableheightlistviewexample.provider.ArrayProvider;
 
 import java.util.ArrayList;
 
@@ -13,18 +17,19 @@ public class DefaultListView extends Ability {
     protected void onStart(Intent intent) {
         super.onStart(intent);
         setUIContent(ResourceTable.Layout_activity_default_list_view);
-
-        ArrayList<Integer> numbersArray = new ArrayList<Integer>();
+        Text text = (Text) findComponentById(ResourceTable.Id_text);
+        Font font = new Font.Builder("myfont")
+                .makeItalic(true)
+                .setWeight(Font.BOLD)
+                .build();
+        text.setFont(font);
         ListContainer defaultListView = (ListContainer) findComponentById(ResourceTable.Id_default_listContainer);
-
-        int i;
-        for (i = 0; i < 20; i++) {
-            numbersArray.add(i);
+        ArrayProvider<Integer> itemsAdapter =
+                new ArrayProvider<>(this, ResourceTable.Layout_simple_list_item);
+        for (int i = 0; i < 20; i++) {
+            itemsAdapter.add(i);
         }
-//        Provider<Integer> itemsAdapter =
-//                new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, numbersArray);
-//
-//        defaultListView.setAdapter(itemsAdapter);
+        defaultListView.setItemProvider(itemsAdapter);
     }
 
     @Override
