@@ -4,13 +4,8 @@ import ohos.agp.components.AttrSet;
 import ohos.agp.components.Component;
 import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.ListContainer;
-import ohos.agp.text.Layout;
 import ohos.app.Context;
-import ohos.global.icu.text.MeasureFormat;
-import ohos.global.icu.util.Measure;
-import ohos.global.icu.util.MeasureUnit;
 import ohos.hiviewdfx.HiLog;
-import ohos.hiviewdfx.HiLogLabel;
 
 public class ExpandableHeightListView extends ListContainer implements Component.EstimateSizeListener {
 
@@ -39,9 +34,9 @@ public class ExpandableHeightListView extends ListContainer implements Component
 //        if (isExpanded()) {
 //            measureChildren(widthEstimatedConfig, heightEstimatedConfig);
 //            int expandSpec = EstimateSpec.getSizeWithMode(EstimateSpec.ESTIMATED_STATE_BIT_MASK, EstimateSpec.NOT_EXCEED);
-//            super.setEstimatedSize(widthEstimatedConfig, expandSpec);
 //            ComponentContainer.LayoutConfig params = getLayoutConfig();
-//            params.height = getEstimatedHeight();
+//            params.height = maxHeight;
+//            super.setEstimatedSize(widthEstimatedConfig, expandSpec);
 //            HiLog.info(Contants.LABEL, "daying==" + params.height);
 //        } else {
 //            super.setEstimatedSize(widthEstimatedConfig, heightEstimatedConfig);
@@ -65,7 +60,7 @@ public class ExpandableHeightListView extends ListContainer implements Component
         int childHeightMeasureSpec = EstimateSpec.getChildSizeWithMode(
                 lc.height, parentHeightMeasureSpec, EstimateSpec.NOT_EXCEED);
         child.estimateSize(childWidthMeasureSpec, childHeightMeasureSpec);
-        maxHeight += childHeightMeasureSpec;
+        maxHeight += child.getEstimatedHeight();
         System.out.print("maxHeight==" + maxHeight);
     }
 

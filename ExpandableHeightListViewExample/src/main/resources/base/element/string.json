@@ -5,6 +5,18 @@
       "value": "ExpandableHeightListView Example"
     },
     {
+      "name": "defaultListView_name",
+      "value": "DefaultListView"
+    },
+    {
+      "name": "expandableListView_name",
+      "value": "ExpandableListView"
+    },
+    {
+      "name": "expandableGridView_name",
+      "value": "ExpandableGridView"
+    },
+    {
       "name": "mainability_description",
       "value": "Java_Phone_Empty Feature Ability"
     },
@@ -31,6 +43,10 @@
     {
       "name": "whoops",
       "value": "Whoops, as you can see ListView only shows the first item."
+    },
+    {
+      "name": "expandablegridview_description",
+      "value": "hap sample empty provider"
     }
   ]
 }

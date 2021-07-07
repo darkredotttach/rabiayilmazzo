@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<state-container
+    xmlns:ohos="http://schemas.huawei.com/res/ohos">
+
+    <item
+        ohos:element="#d9d9d9"
+        ohos:state="component_state_pressed"/>
+
+    <item ohos:state="component_state_empty"/>
+</state-container>

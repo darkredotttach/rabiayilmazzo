@@ -22,6 +22,7 @@
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:padding="8vp"
+            ohos:multiple_lines="true"
             ohos:text="$string:lorem_ipsum"
             ohos:text_size="14fp"/>
 
@@ -36,6 +37,7 @@
             ohos:height="match_content"
             ohos:width="match_content"
             ohos:italic="true"
+            ohos:multiple_lines="true"
             ohos:padding="8vp"
             ohos:text="$string:whoops"
             ohos:text_size="14fp"/>

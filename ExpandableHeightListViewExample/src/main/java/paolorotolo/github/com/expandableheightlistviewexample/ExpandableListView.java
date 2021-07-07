@@ -11,13 +11,16 @@ import ohos.hiviewdfx.HiLogLabel;
 import ohos.multimodalinput.event.KeyEvent;
 import paolorotolo.github.com.expandableheightlistviewexample.provider.ArrayProvider;
 
+import static ohos.agp.components.Component.VERTICAL;
+import static ohos.global.icu.lang.UCharacter.GraphemeClusterBreak.L;
+
 public class ExpandableListView extends Ability {
     private static final HiLogLabel LABEL = new HiLogLabel(HiLog.LOG_APP, 0x00201, "MY_TAG");
 
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
-        setUIContent(ResourceTable.Layout_activity_expandable_list_view);
+        setUIContent(ResourceTable.Layout_ability_expandable_list_view);
         Text text = (Text) findComponentById(ResourceTable.Id_text);
         Font font = new Font.Builder("myfont")
                 .makeItalic(true)
@@ -27,7 +30,7 @@ public class ExpandableListView extends Ability {
         ExpandableHeightListView expandableListView = (ExpandableHeightListView) findComponentById(ResourceTable.Id_expandable_listview);
         ArrayProvider<Integer> itemsAdapter =
                 new ArrayProvider<Integer>(this, ResourceTable.Layout_simple_list_item);
-        for (int i = 0; i <= 150; i++) {
+        for (int i = 0; i <= 20; i++) {
             itemsAdapter.add(i);
         }
         expandableListView.setItemProvider(itemsAdapter);

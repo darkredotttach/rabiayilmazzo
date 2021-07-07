@@ -5,6 +5,7 @@ import ohos.aafwk.ability.AbilitySlice;
 import ohos.agp.components.*;
 import ohos.app.Context;
 import ohos.hiviewdfx.HiLog;
+import paolorotolo.github.com.expandableheightlistviewexample.ResourceTable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,9 +143,15 @@ public class ArrayProvider<T> extends BaseItemProvider {
         } else {
             rootComponent = component;
         }
-        Text text = (Text) rootComponent;
+        Component comLine = rootComponent.findComponentById(ResourceTable.Id_component);
+        Text text = (Text) rootComponent.findComponentById(ResourceTable.Id_text);
         final T item = getItem(pos);
         text.setText(item.toString());
+        if (pos == getCount() - 1) {
+            comLine.setVisibility(Component.HIDE);
+        } else {
+            comLine.setVisibility(Component.VISIBLE);
+        }
         return rootComponent;
     }
 

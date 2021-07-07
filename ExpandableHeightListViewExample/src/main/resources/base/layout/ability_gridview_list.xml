@@ -1,7 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <NestedScrollView
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
     ohos:height="match_parent"
-    ohos:width="match_parent">
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
 
     <DirectionalLayout
         ohos:height="match_content"
@@ -13,6 +15,7 @@
             ohos:id="$+id:text"
             ohos:height="match_content"
             ohos:width="match_content"
+            ohos:multiple_lines="true"
             ohos:padding="8vp"
             ohos:text="$string:scroll"
             ohos:text_size="14fp"/>
@@ -20,15 +23,17 @@
         <Text
             ohos:height="match_content"
             ohos:width="match_content"
+            ohos:multiple_lines="true"
             ohos:padding="8vp"
             ohos:text="$string:lorem_ipsum"
             ohos:text_size="14fp"/>
 
-        <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
-            ohos:id="$+id:expandable_listview"
+        <com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView
+            ohos:id="$+id:expandable_gridview"
             ohos:height="match_content"
             ohos:width="match_parent"
+            ohos:long_click_enabled="false"
             ohos:padding="8vp">
-        </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
+        </com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView>
     </DirectionalLayout>
 </NestedScrollView>

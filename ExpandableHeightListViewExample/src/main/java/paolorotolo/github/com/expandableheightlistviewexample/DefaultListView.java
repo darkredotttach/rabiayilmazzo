@@ -1,6 +1,5 @@
 package paolorotolo.github.com.expandableheightlistviewexample;
 
-import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
@@ -10,13 +9,11 @@ import ohos.agp.text.Font;
 import ohos.multimodalinput.event.KeyEvent;
 import paolorotolo.github.com.expandableheightlistviewexample.provider.ArrayProvider;
 
-import java.util.ArrayList;
-
 public class DefaultListView extends Ability {
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
-        setUIContent(ResourceTable.Layout_activity_default_list_view);
+        setUIContent(ResourceTable.Layout_ability_default_list_view);
         Text text = (Text) findComponentById(ResourceTable.Id_text);
         Font font = new Font.Builder("myfont")
                 .makeItalic(true)

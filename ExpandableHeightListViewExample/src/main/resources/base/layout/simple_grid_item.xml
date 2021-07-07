@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DirectionalLayout
     xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:id="$+id:layout_root"
     ohos:height="match_content"
     ohos:width="match_parent"
-    ohos:orientation="vertical">
+    ohos:left_margin="10vp"
+    ohos:orientation="vertical"
+    ohos:right_margin="10vp">
 
     <Text
-        ohos:id="$+id:text"
+        ohos:id="$+id:text_grid"
         ohos:height="45vp"
         ohos:width="match_parent"
         ohos:background_element="$graphic:selector_item_click"
         ohos:clickable="true"
         ohos:end_padding="10vp"
         ohos:start_padding="10vp"
-        ohos:text_alignment="vertical_center"
+        ohos:text_alignment="center"
         ohos:text_size="14fp">
     </Text>
 
     <Component
-        ohos:id="$+id:component"
         ohos:height="0.5vp"
-        ohos:width="match_parent"
+        ohos:width="match_content"
         ohos:background_element="#d8d8d8"/>
 </DirectionalLayout>

@@ -10,9 +10,10 @@ public class MainAbility extends Ability implements Component.ClickedListener {
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
-        setUIContent(ResourceTable.Layout_activity_main);
+        setUIContent(ResourceTable.Layout_ability_main);
         findComponentById(ResourceTable.Id_bt_default).setClickedListener(this);
         findComponentById(ResourceTable.Id_bt_expandable).setClickedListener(this);
+        findComponentById(ResourceTable.Id_bt_expandable_gridview).setClickedListener(this);
     }
 
     public void tryDefault() {
@@ -38,6 +39,17 @@ public class MainAbility extends Ability implements Component.ClickedListener {
         startAbility(intent);
     }
 
+    public void tryExpandableGridView() {
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder()
+                .withDeviceId("")
+                .withBundleName("paolorotolo.github.com.expandableheightlistviewexample")
+                .withAbilityName("paolorotolo.github.com.expandableheightlistviewexample.ExpandableGridView")
+                .build();
+        intent.setOperation(operation);
+        startAbility(intent);
+    }
+
     @Override
     public void onClick(Component component) {
         switch (component.getId()) {
@@ -47,7 +59,9 @@ public class MainAbility extends Ability implements Component.ClickedListener {
             case ResourceTable.Id_bt_expandable:
                 tryExpandable();
                 break;
-
+            case ResourceTable.Id_bt_expandable_gridview:
+                tryExpandableGridView();
+                break;
         }
     }
 }

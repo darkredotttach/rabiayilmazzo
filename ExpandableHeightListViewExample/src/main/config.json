@@ -50,15 +50,24 @@
         "name": "paolorotolo.github.com.expandableheightlistviewexample.DefaultListView",
         "orientation": "unspecified",
         "type": "page",
-        "label": "DefaultListView",
+        "label": "$string:defaultListView_name",
         "launchType": "standard"
       },
       {
         "name": "paolorotolo.github.com.expandableheightlistviewexample.ExpandableListView",
         "orientation": "unspecified",
         "type": "page",
-        "label": "ExpandableListView",
+        "label": "$string:expandableListView_name",
         "launchType": "standard"
+      },
+      {
+        "name": "paolorotolo.github.com.expandableheightlistviewexample.ExpandableGridView",
+        "orientation": "unspecified",
+        "launchType": "standard",
+        "icon": "$media:icon",
+        "label": "$string:expandableGridView_name",
+        "description": "$string:expandablegridview_description",
+        "type": "page"
       }
     ]
   }
