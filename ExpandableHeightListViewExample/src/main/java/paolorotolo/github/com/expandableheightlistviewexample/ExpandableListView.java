@@ -9,13 +9,13 @@ import ohos.agp.text.Font;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 import ohos.multimodalinput.event.KeyEvent;
-import paolorotolo.github.com.expandableheightlistviewexample.provider.ArrayProvider;
+import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 
-import static ohos.agp.components.Component.VERTICAL;
-import static ohos.global.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import java.util.ArrayList;
 
 public class ExpandableListView extends Ability {
     private static final HiLogLabel LABEL = new HiLogLabel(HiLog.LOG_APP, 0x00201, "MY_TAG");
+    private ArrayList arrayList = new ArrayList<Integer>();
 
     @Override
     protected void onStart(Intent intent) {
@@ -28,16 +28,19 @@ public class ExpandableListView extends Ability {
                 .build();
         text.setFont(font);
         ExpandableHeightListView expandableListView = (ExpandableHeightListView) findComponentById(ResourceTable.Id_expandable_listview);
-        ArrayProvider<Integer> itemsAdapter =
-                new ArrayProvider<Integer>(this, ResourceTable.Layout_simple_list_item);
+//        ArrayProvider<Integer> itemsAdapter =
+//                new ArrayProvider<Integer>(this, ResourceTable.Layout_simple_list_item);
         for (int i = 0; i <= 20; i++) {
-            itemsAdapter.add(i);
+            arrayList.add(i);
         }
-        expandableListView.setItemProvider(itemsAdapter);
+//        expandableListView.setItemProvider(itemsAdapter);
         // This actually do the magic
+//        expandableListView.setExpanded(true);
+//        setListContainerHeightBasedOnChildren(expandableListView);
         expandableListView.setExpanded(true);
-        setListContainerHeightBasedOnChildren(expandableListView);
+        expandableListView.setProvider(this, arrayList);
     }
+
     public void setListContainerHeightBasedOnChildren(ListContainer listContainer) {
         BaseItemProvider listAdapter = listContainer.getItemProvider();
         if (listAdapter == null) {
@@ -51,7 +54,7 @@ public class ExpandableListView extends Ability {
         }
 
         ComponentContainer.LayoutConfig params = listContainer.getLayoutConfig();
-        params.height = totalHeight + (listContainer.getPaddingTop()+listContainer.getPaddingBottom());
+        params.height = totalHeight + (listContainer.getPaddingTop() + listContainer.getPaddingBottom());
         listContainer.setLayoutConfig(params);
     }
 

@@ -7,7 +7,7 @@ import ohos.agp.components.ListContainer;
 import ohos.agp.components.Text;
 import ohos.agp.text.Font;
 import ohos.multimodalinput.event.KeyEvent;
-import paolorotolo.github.com.expandableheightlistviewexample.provider.ArrayProvider;
+import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 
 public class DefaultListView extends Ability {
     @Override

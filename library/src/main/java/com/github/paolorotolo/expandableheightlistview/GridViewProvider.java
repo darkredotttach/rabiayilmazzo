@@ -1,11 +1,9 @@
-package paolorotolo.github.com.expandableheightlistviewexample.provider;
+package com.github.paolorotolo.expandableheightlistview;
 
-import com.github.paolorotolo.expandableheightlistview.Contants;
 import ohos.agp.components.*;
 import ohos.agp.window.service.DisplayManager;
 import ohos.app.Context;
 import ohos.hiviewdfx.HiLog;
-import paolorotolo.github.com.expandableheightlistviewexample.ResourceTable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +16,13 @@ public class GridViewProvider extends BaseItemProvider {
     private final int columnCount;
     private List<Integer> list = new ArrayList();
     private int width;
+    private int parentPadding;
 
-    public GridViewProvider(ArrayList<Integer> arrayList, int columnCount) {
+    public GridViewProvider(Context context, ArrayList<Integer> arrayList, int columnCount, int parentPadding) {
         this.list = arrayList;
         this.columnCount = columnCount;
+        this.parentPadding = parentPadding;
+        width = DisplayManager.getInstance().getDefaultDisplay(context).get().getAttributes().width;
     }
 
     @Override
@@ -39,11 +40,6 @@ public class GridViewProvider extends BaseItemProvider {
         return id;
     }
 
-    public void setItemWidth(int width) {
-        this.width = width;
-        notifyDataChanged();
-    }
-
     @Override
     public Component getComponent(int position, Component component, ComponentContainer componentContainer) {
         final Component rootComponent;
@@ -57,11 +53,11 @@ public class GridViewProvider extends BaseItemProvider {
         DirectionalLayout roorView = (DirectionalLayout) rootComponent.findComponentById(ResourceTable.Id_layout_root);
         if (width != 0) {
             DirectionalLayout.LayoutConfig layoutConfig = new DirectionalLayout.LayoutConfig();
-            layoutConfig.width = width / columnCount;
+            layoutConfig.width = (width - parentPadding) / columnCount;
             roorView.setLayoutConfig(layoutConfig);
+            HiLog.info(Contants.LABEL, "text==" + width + "---parentPadding=" + parentPadding);
         }
         text.setText(String.valueOf(list.get(position)));
-        HiLog.info(Contants.LABEL, "text==" + width);
         return rootComponent;
     }
 }

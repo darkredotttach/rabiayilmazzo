@@ -2,15 +2,16 @@ package com.github.paolorotolo.expandableheightlistview;
 
 import ohos.agp.components.AttrSet;
 import ohos.agp.components.Component;
-import ohos.agp.components.ComponentContainer;
 import ohos.agp.components.ListContainer;
+import ohos.agp.components.TableLayoutManager;
 import ohos.app.Context;
-import ohos.hiviewdfx.HiLog;
+import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 
-public class ExpandableHeightListView extends ListContainer implements Component.EstimateSizeListener {
+import java.util.ArrayList;
+
+public class ExpandableHeightListView extends ListContainer {
 
     boolean expanded = false;
-    private int maxHeight;
 
     public ExpandableHeightListView(Context context) {
         this(context, null);
@@ -22,51 +23,32 @@ public class ExpandableHeightListView extends ListContainer implements Component
 
     public ExpandableHeightListView(Context context, AttrSet attrs, String styleName) {
         super(context, attrs, styleName);
-//        setEstimateSizeListener(this::onEstimateSize);
+        init();
+    }
+
+    private void init() {
+        if (expanded) {
+            TableLayoutManager tableLayoutManager = new TableLayoutManager();
+            tableLayoutManager.setColumnCount(1);
+            tableLayoutManager.setOrientation(Component.HORIZONTAL);
+            setLayoutManager(tableLayoutManager);
+        }
+    }
+
+    public void setProvider(Context context, ArrayList<Integer> arrayList) {
+        ArrayProvider<Integer> itemsAdapter =
+                new ArrayProvider<Integer>(context, ResourceTable.Layout_simple_list_item);
+        itemsAdapter.add(arrayList);
+        setItemProvider(itemsAdapter);
     }
 
     public boolean isExpanded() {
         return expanded;
     }
 
-    @Override
-    public boolean onEstimateSize(int widthEstimatedConfig, int heightEstimatedConfig) {
-//        if (isExpanded()) {
-//            measureChildren(widthEstimatedConfig, heightEstimatedConfig);
-//            int expandSpec = EstimateSpec.getSizeWithMode(EstimateSpec.ESTIMATED_STATE_BIT_MASK, EstimateSpec.NOT_EXCEED);
-//            ComponentContainer.LayoutConfig params = getLayoutConfig();
-//            params.height = maxHeight;
-//            super.setEstimatedSize(widthEstimatedConfig, expandSpec);
-//            HiLog.info(Contants.LABEL, "daying==" + params.height);
-//        } else {
-//            super.setEstimatedSize(widthEstimatedConfig, heightEstimatedConfig);
-//        }
-        return false;
-    }
-
-    private void measureChildren(int widthEstimatedConfig, int heightEstimatedConfig) {
-        for (int idx = 0; idx < getChildCount(); idx++) {
-            Component childView = getComponentAt(idx);
-            if (childView != null) {
-                measureChild(childView, widthEstimatedConfig, heightEstimatedConfig);
-            }
-        }
-    }
-
-    private void measureChild(Component child, int parentWidthMeasureSpec, int parentHeightMeasureSpec) {
-        ComponentContainer.LayoutConfig lc = child.getLayoutConfig();
-        int childWidthMeasureSpec = EstimateSpec.getChildSizeWithMode(
-                lc.width, parentWidthMeasureSpec, EstimateSpec.NOT_EXCEED);
-        int childHeightMeasureSpec = EstimateSpec.getChildSizeWithMode(
-                lc.height, parentHeightMeasureSpec, EstimateSpec.NOT_EXCEED);
-        child.estimateSize(childWidthMeasureSpec, childHeightMeasureSpec);
-        maxHeight += child.getEstimatedHeight();
-        System.out.print("maxHeight==" + maxHeight);
-    }
-
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
+        invalidate();
     }
-
 
 }

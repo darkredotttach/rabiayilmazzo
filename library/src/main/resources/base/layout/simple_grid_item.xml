@@ -11,17 +11,16 @@
     <Text
         ohos:id="$+id:text_grid"
         ohos:height="45vp"
+        ohos:text="1"
         ohos:width="match_parent"
         ohos:background_element="$graphic:selector_item_click"
         ohos:clickable="true"
-        ohos:end_padding="10vp"
-        ohos:start_padding="10vp"
         ohos:text_alignment="center"
         ohos:text_size="14fp">
     </Text>
 
     <Component
         ohos:height="0.5vp"
-        ohos:width="match_content"
+        ohos:width="match_parent"
         ohos:background_element="#d8d8d8"/>
 </DirectionalLayout>

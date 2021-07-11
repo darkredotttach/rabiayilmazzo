@@ -1,11 +1,9 @@
-package paolorotolo.github.com.expandableheightlistviewexample.provider;
+package com.github.paolorotolo.expandableheightlistview.provider;
 
-import com.github.paolorotolo.expandableheightlistview.Contants;
+import com.github.paolorotolo.expandableheightlistview.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.agp.components.*;
 import ohos.app.Context;
-import ohos.hiviewdfx.HiLog;
-import paolorotolo.github.com.expandableheightlistviewexample.ResourceTable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -108,6 +106,25 @@ public class ArrayProvider<T> extends BaseItemProvider {
                 mOriginalValues.add(object);
             } else {
                 mObjects.add(object);
+            }
+            mObjectsFromResources = false;
+        }
+        if (mNotifyOnChange) {
+            notifyDataChanged();
+        }
+    }
+
+    /**
+     * 添加数据
+     *
+     * @param list addObj
+     */
+    public void add(ArrayList<T> list) {
+        synchronized (mLock) {
+            if (mOriginalValues != null) {
+                mOriginalValues.addAll(list);
+            } else {
+                mObjects.addAll(list);
             }
             mObjectsFromResources = false;
         }
