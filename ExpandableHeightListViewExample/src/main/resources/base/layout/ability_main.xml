@@ -23,7 +23,7 @@
             ohos:left_padding="8vp"
             ohos:margin="8vp"
             ohos:right_padding="8vp"
-            ohos:text="Try Default Listview"
+            ohos:text="TRY DEFAULT LISTVIEW"
             ohos:text_size="14fp"
             ohos:top_padding="5vp"/>
 
@@ -37,8 +37,9 @@
             ohos:left_padding="8vp"
             ohos:margin="8vp"
             ohos:right_padding="8vp"
-            ohos:text="Try Expandable ListView"
-            ohos:text_size="14fp"/>
+            ohos:text="TRY EXPANDABLE LISTVIEW"
+            ohos:text_size="14fp"
+            ohos:top_padding="5vp"/>
 
         <Button
             ohos:id="$+id:bt_expandable_gridview"
@@ -50,7 +51,8 @@
             ohos:left_padding="8vp"
             ohos:margin="8vp"
             ohos:right_padding="8vp"
-            ohos:text="Try Expandable GridView"
-            ohos:text_size="14fp"/>
+            ohos:text="TRY EXPANDABLE GRIDVIEW"
+            ohos:text_size="14fp"
+            ohos:top_padding="5vp"/>
     </DirectionalLayout>
 </DependentLayout>

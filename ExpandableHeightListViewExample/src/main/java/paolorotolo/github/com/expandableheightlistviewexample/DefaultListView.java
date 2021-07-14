@@ -16,7 +16,7 @@ public class DefaultListView extends Ability {
         setUIContent(ResourceTable.Layout_ability_default_list_view);
         Text text = (Text) findComponentById(ResourceTable.Id_text);
         Font font = new Font.Builder("myfont")
-                .makeItalic(true)
+                .makeItalic(false)
                 .setWeight(Font.BOLD)
                 .build();
         text.setFont(font);
@@ -29,18 +29,4 @@ public class DefaultListView extends Ability {
         defaultListView.setItemProvider(itemsAdapter);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
-        if (keyCode == keyEvent.KEY_BACK) {
-            Intent intent = new Intent();
-            Operation operation = new Intent.OperationBuilder()
-                    .withDeviceId("")
-                    .withBundleName("paolorotolo.github.com.expandableheightlistviewexample")
-                    .withAbilityName("paolorotolo.github.com.expandableheightlistviewexample.MainAbility")
-                    .build();
-            intent.setOperation(operation);
-            startAbility(intent);
-        }
-        return super.onKeyDown(keyCode, keyEvent);
-    }
 }

@@ -17,6 +17,7 @@
             ohos:width="match_content"
             ohos:multiple_lines="true"
             ohos:padding="8vp"
+            ohos:text_color="#737373"
             ohos:text="$string:scroll"
             ohos:text_size="14fp"/>
 
@@ -25,6 +26,7 @@
             ohos:width="match_content"
             ohos:multiple_lines="true"
             ohos:padding="8vp"
+            ohos:text_color="#737373"
             ohos:text="$string:lorem_ipsum"
             ohos:text_size="14fp"/>
 

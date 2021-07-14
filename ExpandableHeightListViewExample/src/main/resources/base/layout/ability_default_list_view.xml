@@ -16,14 +16,16 @@
             ohos:width="match_content"
             ohos:padding="8vp"
             ohos:text="$string:scroll"
+            ohos:text_color="#737373"
             ohos:text_size="14fp"/>
 
         <Text
             ohos:height="match_content"
             ohos:width="match_content"
-            ohos:padding="8vp"
             ohos:multiple_lines="true"
+            ohos:padding="8vp"
             ohos:text="$string:lorem_ipsum"
+            ohos:text_color="#737373"
             ohos:text_size="14fp"/>
 
         <ListContainer
@@ -40,6 +42,7 @@
             ohos:multiple_lines="true"
             ohos:padding="8vp"
             ohos:text="$string:whoops"
+            ohos:text_color="#737373"
             ohos:text_size="14fp"/>
     </DirectionalLayout>
 </ScrollView>

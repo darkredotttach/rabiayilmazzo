@@ -23,7 +23,6 @@ public class ExpandableHeightListView extends ListContainer {
 
     public ExpandableHeightListView(Context context, AttrSet attrs, String styleName) {
         super(context, attrs, styleName);
-        init();
     }
 
     private void init() {
@@ -48,7 +47,7 @@ public class ExpandableHeightListView extends ListContainer {
 
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
-        invalidate();
+        init();
     }
 
 }

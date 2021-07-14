@@ -22,24 +22,32 @@ public class ExpandableHeightGridView extends ListContainer {
     public ExpandableHeightGridView(Context context, AttrSet attrs, String defStyle) {
         super(context, attrs, defStyle);
         this.context = context;
-        initLayout();
     }
 
     private void initLayout() {
-        manager = new TableLayoutManager();
-        manager.setColumnCount(3);
-        manager.setOrientation(HORIZONTAL);
-        setLayoutManager(manager);
+        if (expanded) {
+            manager = new TableLayoutManager();
+            manager.setOrientation(HORIZONTAL);
+            setLayoutManager(manager);
+        }
     }
 
-    public void setAdapter(ArrayList<Integer> arrayList, int padding, int paddingPar) {
+    public void setProvider(int column, ArrayList<Integer> arrayList, int padding, int paddingPar) {
+        if (manager != null) {
+            manager.setColumnCount(column);
+        }
         GridViewProvider itemsAdapter =
-                new GridViewProvider(context, arrayList, manager.getColumnCount(), padding + paddingPar);
+                new GridViewProvider(context, arrayList, column, padding + paddingPar);
         setItemProvider(itemsAdapter);
+    }
+
+    public boolean isExpanded() {
+        return expanded;
     }
 
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
+        initLayout();
     }
 
 }
