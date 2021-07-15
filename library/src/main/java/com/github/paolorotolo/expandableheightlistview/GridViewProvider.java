@@ -55,7 +55,6 @@ public class GridViewProvider extends BaseItemProvider {
             DirectionalLayout.LayoutConfig layoutConfig = new DirectionalLayout.LayoutConfig();
             layoutConfig.width = (width - parentPadding) / columnCount;
             roorView.setLayoutConfig(layoutConfig);
-            HiLog.info(Contants.LABEL, "text==" + width + "---parentPadding=" + parentPadding);
         }
         text.setText(String.valueOf(list.get(position)));
         return rootComponent;
