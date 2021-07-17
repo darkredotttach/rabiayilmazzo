@@ -1,6 +1,5 @@
 package paolorotolo.github.com.expandableheightlistviewexample;
 
-import com.github.paolorotolo.expandableheightlistview.Contants;
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
