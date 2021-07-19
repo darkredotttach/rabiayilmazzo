@@ -25,7 +25,6 @@ public class MainAbility extends Ability implements Component.ClickedListener {
                 .build();
         intent.setOperation(operation);
         startAbility(intent);
-
     }
 
     public void tryExpandable() {

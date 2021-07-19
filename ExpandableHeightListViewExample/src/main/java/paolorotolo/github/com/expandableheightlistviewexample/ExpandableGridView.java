@@ -3,11 +3,11 @@ package paolorotolo.github.com.expandableheightlistviewexample;
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
+import ohos.aafwk.content.Operation;
 import ohos.agp.components.DirectionalLayout;
 import ohos.agp.components.Text;
 import ohos.agp.text.Font;
-import ohos.hiviewdfx.HiLogLabel;
-
+import ohos.multimodalinput.event.KeyEvent;
 import java.util.ArrayList;
 
 public class ExpandableGridView extends Ability {
@@ -33,5 +33,20 @@ public class ExpandableGridView extends Ability {
         int paddingPar = componentParent.getPaddingLeft() + componentParent.getPaddingRight();
         gridListContainer.setExpanded(true);
         gridListContainer.setProvider(3, arrayList, padding, paddingPar);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+        if (keyCode == keyEvent.KEY_BACK) {
+            Intent intent = new Intent();
+            Operation operation = new Intent.OperationBuilder()
+                    .withDeviceId("")
+                    .withBundleName("paolorotolo.github.com.expandableheightlistviewexample")
+                    .withAbilityName("paolorotolo.github.com.expandableheightlistviewexample.MainAbility")
+                    .build();
+            intent.setOperation(operation);
+            startAbility(intent);
+        }
+        return super.onKeyDown(keyCode, keyEvent);
     }
 }

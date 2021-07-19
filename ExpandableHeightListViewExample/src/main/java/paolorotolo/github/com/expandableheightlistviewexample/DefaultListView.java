@@ -29,4 +29,18 @@ public class DefaultListView extends Ability {
         defaultListView.setItemProvider(itemsAdapter);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
+        if (keyCode == keyEvent.KEY_BACK) {
+            Intent intent = new Intent();
+            Operation operation = new Intent.OperationBuilder()
+                    .withDeviceId("")
+                    .withBundleName("paolorotolo.github.com.expandableheightlistviewexample")
+                    .withAbilityName("paolorotolo.github.com.expandableheightlistviewexample.MainAbility")
+                    .build();
+            intent.setOperation(operation);
+            startAbility(intent);
+        }
+        return super.onKeyDown(keyCode, keyEvent);
+    }
 }
