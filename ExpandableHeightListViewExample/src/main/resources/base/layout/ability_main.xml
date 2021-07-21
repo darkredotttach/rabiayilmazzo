@@ -50,6 +50,7 @@
             ohos:layout_alignment="horizontal_center"
             ohos:left_padding="8vp"
             ohos:margin="8vp"
+            ohos:visibility="hide"
             ohos:right_padding="8vp"
             ohos:text="TRY EXPANDABLE GRIDVIEW"
             ohos:text_size="14fp"
