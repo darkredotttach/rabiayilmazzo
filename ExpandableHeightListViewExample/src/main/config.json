@@ -4,7 +4,7 @@
     "vendor": "example",
     "version": {
       "code": 1,
-      "name": "1.0.0"
+      "name": "1.0.1"
     },
     "apiVersion": {
       "compatible": 5,
@@ -38,6 +38,15 @@
             ]
           }
         ],
+        "metaData": {
+          "customizeData": [
+            {
+              "name": "hwc-theme",
+              "value": "androidhwext:style/Theme.Emui.NoTitleBar",
+              "extra": ""
+            }
+          ]
+        },
         "orientation": "unspecified",
         "name": "paolorotolo.github.com.expandableheightlistviewexample.MainAbility",
         "icon": "$media:icon",

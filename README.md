@@ -1,76 +1,124 @@
 # ExpandableHeightListView
-Android Library to put a **ListView** inside a **ScrollView** without collapsing.
 
-[![Maven Central](https://img.shields.io/badge/maven%20central-expandableheightlistview%3A1.0.0-brightgreen.svg)](http://search.maven.org/#artifactdetails|com.github.paolorotolo|expandableheightlistview|1.0.0|)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-ExpandableHeightListView-green.svg?style=flat)](https://android-arsenal.com/details/1/1919)
+#### 项目介绍
+- 项目名称：ExpandableHeightListView
+- 所属系列：openharmony的第三方组件适配移植
+- 功能：ScrollView嵌套ListContainer不折叠
+- 项目移植状态：主功能完成
+- 调用差异：无
+- 开发版本：sdk5，DevEco Studio2.1 Release
+- 基线版本：Release 1.0.0
 
+#### 效果演示
 
-## How to use
-Add this to your **build.gradle**:
-```java
-repositories {
-    mavenCentral()
+![输入图片说明](./printscreen/screenshot.gif)
+
+#### 安装教程
+
+1.在项目根目录下的build.gradle文件中，
+
+ ```
+allprojects {
+
+    repositories {
+
+        maven {
+
+            url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+
+        }
+    }
 }
 
-dependencies {
-  compile 'com.github.paolorotolo:expandableheightlistview:1.0.0'
-}
-```
+ ```
 
-Add ExpandableHeightListView instead of ListView in your **xml files**:
+2.在entry模块的build.gradle文件中，
 
+ ```
+
+ dependencies {
+
+    implementation('com.gitee.chinasoft_ohos:boxedverticalseekbarlibrary:0.0.1-SNAPSHOT')
+
+    ......  
+
+ }
+
+ ```
+
+在sdk5，DevEco Studio2.1 beta3下项目可直接运行
+如无法运行，删除项目.gradle,.idea,build,gradle,build.gradle文件，
+并依据自己的版本创建新项目，将新项目的对应文件复制到根目录下
+#### 使用说明
+
+1.定义BoxedVertical
 ```java
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-        <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
-            android:id="@+id/expandable_listview"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
-        </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
-</ScrollView>
+ <com.example.boxedverticalseekbarlibrary.view.BoxedVertical
+         ohos:id="$+id:boxSeekbar"
+         ohos:height="match_parent"
+         ohos:width="60vp"
+         ohos:align_parent_bottom="true"
+         ohos:below="$+id:dl_layout2"
+         ohos:bottom_margin="30vp"
+         ohos:horizontal_center="true"
+         ohos:top_margin="30vp"
+         hap:backgroundColor="#4b4b4b"
+         hap:defaultValue="30"
+         hap:enabled="true"
+         hap:imageEnabled="true"
+         hap:libCornerRadius="20"
+         hap:max="100"
+         hap:step="1"
+         hap:progressColor="#fbfbfb"
+         hap:textColor="#FF0000"
+         hap:textEnabled="false"
+         hap:defaulTextSize="14"
+         hap:imgResourceMax="$media:ic_volume_up_black_48dp"
+         hap:imgResourceMin="$media:ic_volume_off_black_48dp"
+         hap:imgResourceDefault="$media:ic_volume_down_black_48dp"
+         hap:touchDisabled="true"
 ```
-
-Expand ExpandableHeightListView **programmatically**:
+2.使用方式
 ```java
-    ExpandableHeightListView expandableListView = (ExpandableHeightListView) findViewById(R.id.expandable_listview);
-    
-    expandableListView.setAdapter(adapterName);
+        bv = (BoxedVertical) findComponentById(ResourceTable.Id_boxSeekbar);
+        bv.setOnBoxedPointsChangeListener(new BoxedVertical.OnValuesChangeListener() {
+            @Override
+            public void onPointsChanged(BoxedVertical boxedPoints, final int points) {
+                valueTextView.setText("Current Value is " + String.valueOf(points));
+            }
 
-    // This actually does the magic
-    expandableListView.setExpanded(true);
+            @Override
+            public void onStartTrackingTouch(BoxedVertical boxedPoints) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(BoxedVertical boxedPoints) {
+
+            }
+        });
+```
+#### 测试信息
+
+CodeCheck代码测试无异常
+
+CloudTest代码测试无异常
+
+火绒安全病毒安全检测通过
+
+当前版本demo功能与原组件基本无差异
+
+#### 版本迭代
+
+- 0.0.1-SNAPSHOT
+
+### 版权和许可信息
+
+```
+The library is a free software, you can use it, extended with no requirement to open source your changes. You can also make paid apps using it.
+
+Pull requests are welcomed
 ```
 
-It also works well with **GridView**.
-
-Just use this instead:
-```
-<com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView
-            android:id="@+id/expandable_listview"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
-        </com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView>
-```
-
-## Example
-See it in action: download **test .apk** [here](https://github.com/PaoloRotolo/ExpandableHeightListView/raw/master/ExpandableHeightListViewExample/app/app-release.apk).
-
-Also check the example app's sources here on GitHub *(ExpandableHeightListViewExample)*.
-
-##Wait, what?
-Well, did you ever try to put a ListView inside a ScrollView?
-
-**This is what happens.**
-
-<img src="https://github.com/PaoloRotolo/ExpandableHeightListView/blob/master/art/default.png" width="500">
-
-And this is what you can do with **ExpandableHeightListView**.
-
-<img src="https://github.com/PaoloRotolo/ExpandableHeightListView/blob/master/art/expandable.png" width="500">
 
 
-*Inspired by [this](http://stackoverflow.com/questions/20659696/scroll-feature-of-listview-within-scroll-view) answer on StackOverflow.*

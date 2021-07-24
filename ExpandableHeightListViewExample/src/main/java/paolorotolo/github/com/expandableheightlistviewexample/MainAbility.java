@@ -4,16 +4,24 @@ import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.Component;
+import ohos.agp.components.Text;
+import ohos.agp.utils.Color;
+import ohos.agp.window.service.Window;
 
 public class MainAbility extends Ability implements Component.ClickedListener {
 
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
+        Window window = getWindow();
+        window.setStatusBarColor(Color.BLACK.getValue());
+        window.setStatusBarVisibility(Component.VISIBLE);
         setUIContent(ResourceTable.Layout_ability_main);
         findComponentById(ResourceTable.Id_bt_default).setClickedListener(this);
         findComponentById(ResourceTable.Id_bt_expandable).setClickedListener(this);
         findComponentById(ResourceTable.Id_bt_expandable_gridview).setClickedListener(this);
+        Text title = (Text) findComponentById(ResourceTable.Id_title);
+        title.setText(getString(ResourceTable.String_app_name));
     }
 
     public void tryDefault() {
