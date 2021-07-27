@@ -1,5 +1,6 @@
 package com.github.paolorotolo.expandableheightlistview;
 
+import com.github.paolorotolo.expandableheightlistview.provider.GridViewProvider;
 import ohos.agp.components.*;
 import ohos.app.Context;
 

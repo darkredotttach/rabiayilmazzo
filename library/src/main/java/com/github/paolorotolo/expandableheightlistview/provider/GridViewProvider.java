@@ -1,5 +1,6 @@
-package com.github.paolorotolo.expandableheightlistview;
+package com.github.paolorotolo.expandableheightlistview.provider;
 
+import com.github.paolorotolo.expandableheightlistview.ResourceTable;
 import ohos.agp.components.*;
 import ohos.agp.window.service.DisplayManager;
 import ohos.app.Context;
