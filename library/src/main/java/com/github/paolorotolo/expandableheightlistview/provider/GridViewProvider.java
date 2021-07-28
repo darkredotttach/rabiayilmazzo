@@ -26,6 +26,15 @@ public class GridViewProvider extends BaseItemProvider {
         width = DisplayManager.getInstance().getDefaultDisplay(context).get().getAttributes().width;
     }
 
+    public void setNewArrayList(ArrayList<Integer> arrayList) {
+        this.list = list;
+        notifyDataChanged();
+    }
+
+    public List<Integer> getArrayList() {
+        return list;
+    }
+
     @Override
     public int getCount() {
         return list.size();

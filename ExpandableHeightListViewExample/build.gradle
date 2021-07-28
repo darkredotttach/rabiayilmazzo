@@ -1,4 +1,5 @@
 apply plugin: 'com.huawei.ohos.hap'
+apply plugin: 'com.huawei.ohos.decctest'
 
 ohos {
     signingConfigs {
@@ -21,5 +22,10 @@ ohos {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
     testCompile 'junit:junit:4.12'
+    ohosTestImplementation 'com.huawei.ohos.testkit:runner:1.0.0.100'
     implementation project(':library')
+}
+
+decc {
+    supportType = ['html', 'xml']
 }
