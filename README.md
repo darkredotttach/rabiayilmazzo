@@ -38,7 +38,7 @@ allprojects {
 
  dependencies {
 
-    implementation('com.gitee.chinasoft_ohos:boxedverticalseekbarlibrary:0.0.1-SNAPSHOT')
+    implementation('com.gitee.chinasoft_ohos:expandableHeightListView:0.0.1-SNAPSHOT')
 
     ......  
 
@@ -46,57 +46,52 @@ allprojects {
 
  ```
 
-在sdk5，DevEco Studio2.1 beta3下项目可直接运行
+在sdk5，DevEco Studio2.1 Release下项目可直接运行
 如无法运行，删除项目.gradle,.idea,build,gradle,build.gradle文件，
 并依据自己的版本创建新项目，将新项目的对应文件复制到根目录下
 #### 使用说明
 
-1.定义BoxedVertical
+1.定义ExpandableListView
 ```java
- <com.example.boxedverticalseekbarlibrary.view.BoxedVertical
-         ohos:id="$+id:boxSeekbar"
-         ohos:height="match_parent"
-         ohos:width="60vp"
-         ohos:align_parent_bottom="true"
-         ohos:below="$+id:dl_layout2"
-         ohos:bottom_margin="30vp"
-         ohos:horizontal_center="true"
-         ohos:top_margin="30vp"
-         hap:backgroundColor="#4b4b4b"
-         hap:defaultValue="30"
-         hap:enabled="true"
-         hap:imageEnabled="true"
-         hap:libCornerRadius="20"
-         hap:max="100"
-         hap:step="1"
-         hap:progressColor="#fbfbfb"
-         hap:textColor="#FF0000"
-         hap:textEnabled="false"
-         hap:defaulTextSize="14"
-         hap:imgResourceMax="$media:ic_volume_up_black_48dp"
-         hap:imgResourceMin="$media:ic_volume_off_black_48dp"
-         hap:imgResourceDefault="$media:ic_volume_down_black_48dp"
-         hap:touchDisabled="true"
+<com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
+            ohos:id="$+id:expandable_listview"
+            ohos:height="match_content"
+            ohos:long_click_enabled="false"
+            ohos:width="match_parent"
+            ohos:padding="8vp">
+</com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
 ```
-2.使用方式
+2.使用ExpandableListView
 ```java
-        bv = (BoxedVertical) findComponentById(ResourceTable.Id_boxSeekbar);
-        bv.setOnBoxedPointsChangeListener(new BoxedVertical.OnValuesChangeListener() {
-            @Override
-            public void onPointsChanged(BoxedVertical boxedPoints, final int points) {
-                valueTextView.setText("Current Value is " + String.valueOf(points));
-            }
-
-            @Override
-            public void onStartTrackingTouch(BoxedVertical boxedPoints) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(BoxedVertical boxedPoints) {
-
-            }
-        });
+       ExpandableHeightListView expandableListView = (ExpandableHeightListView) findComponentById(ResourceTable.Id_expandable_listview);
+       for (int i = 0; i <= 20; i++) {
+            arrayList.add(i);
+       }
+       expandableListView.setExpanded(true);
+       expandableListView.setProvider(this, arrayList);
+```
+3.定义ExpandableGridView
+```java
+<com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView
+            ohos:id="$+id:expandable_gridview"
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:long_click_enabled="false"
+            ohos:padding="8vp">
+</com.github.paolorotolo.expandableheightlistview.ExpandableHeightGridView>
+```
+4.使用ExpandableGridView
+```java
+        gridListContainer = (ExpandableHeightGridView) findComponentById(ResourceTable.Id_expandable_gridview);
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int i = 0; i <= 20; i++) {
+            arrayList.add(i);
+        }
+        int padding = gridListContainer.getPaddingLeft() + gridListContainer.getPaddingRight();
+        DirectionalLayout componentParent = (DirectionalLayout) gridListContainer.getComponentParent();
+        int paddingPar = componentParent.getPaddingLeft() + componentParent.getPaddingRight();
+        gridListContainer.setExpanded(true);
+        gridListContainer.setProvider(3, arrayList, padding, paddingPar);
 ```
 #### 测试信息
 
@@ -111,14 +106,6 @@ CloudTest代码测试无异常
 #### 版本迭代
 
 - 0.0.1-SNAPSHOT
-
-### 版权和许可信息
-
-```
-The library is a free software, you can use it, extended with no requirement to open source your changes. You can also make paid apps using it.
-
-Pull requests are welcomed
-```
 
 
 

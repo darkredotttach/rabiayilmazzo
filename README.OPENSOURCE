@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "ExpandableHeightListView",
+        "License": "Apache License",
+        "License File": "LICENSE",
+        "Version Number": "1.0.0",
+        "Upstream URL": "https://github.com/paolorotolo/ExpandableHeightListView",
+        "Description": "Android Library to put a ListView inside a ScrollView without collapsing."
+    }
+]
