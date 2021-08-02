@@ -4,13 +4,16 @@ import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 import ohos.aafwk.ability.Ability;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
-import ohos.agp.components.*;
+import ohos.agp.components.Text;
 import ohos.agp.text.Font;
-import ohos.hiviewdfx.HiLog;
 import ohos.multimodalinput.event.KeyEvent;
 
 import java.util.ArrayList;
 
+/**
+ * @时间：2021/06/16
+ * @描述：折叠效果
+ */
 public class ExpandableListView extends Ability {
     private ArrayList arrayList = new ArrayList<Integer>();
 
@@ -24,7 +27,8 @@ public class ExpandableListView extends Ability {
                 .setWeight(Font.BOLD)
                 .build();
         text.setFont(font);
-        ExpandableHeightListView expandableListView = (ExpandableHeightListView) findComponentById(ResourceTable.Id_expandable_listview);
+        ExpandableHeightListView expandableListView = (ExpandableHeightListView) findComponentById
+                (ResourceTable.Id_expandable_listview);
         for (int i = 0; i <= 20; i++) {
             arrayList.add(i);
         }

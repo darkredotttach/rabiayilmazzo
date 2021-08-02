@@ -6,13 +6,14 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
-
 /**
- * @时间：
- * @描述：
- **/
+ * @时间：2021/6/16
+ * @描述：ArrayProvider单元测试
+ */
 public class ArrayProviderTest extends AbilitySlice {
+    /**
+     * 适配器添加int类型数据
+     */
     @Test
     public void add() {
         ArrayProvider<Integer> itemsAdapter =
@@ -23,6 +24,9 @@ public class ArrayProviderTest extends AbilitySlice {
         System.out.print("adapter添加完成int类型数据=" + itemsAdapter.getCount());
     }
 
+    /**
+     * 适配器添加集合数据
+     */
     @Test
     public void testAdd() {
         ArrayProvider<Integer> itemsAdapter =

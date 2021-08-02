@@ -10,8 +10,7 @@ import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 import java.util.ArrayList;
 
 public class ExpandableHeightListView extends ListContainer {
-
-    boolean expanded = false;
+    private boolean expanded = false;
 
     public ExpandableHeightListView(Context context) {
         this(context, null);
@@ -34,6 +33,12 @@ public class ExpandableHeightListView extends ListContainer {
         }
     }
 
+    /**
+     * 设置适配器
+     *
+     * @param context   上下文
+     * @param arrayList 集合数据
+     */
     public void setProvider(Context context, ArrayList<Integer> arrayList) {
         ArrayProvider<Integer> itemsAdapter =
                 new ArrayProvider<Integer>(context, ResourceTable.Layout_simple_list_item);
@@ -41,10 +46,20 @@ public class ExpandableHeightListView extends ListContainer {
         setItemProvider(itemsAdapter);
     }
 
+    /**
+     * 是否折叠
+     *
+     * @return boolean是否折叠
+     */
     public boolean isExpanded() {
         return expanded;
     }
 
+    /**
+     * 设置是否折叠
+     *
+     * @param expanded true折叠，false不折叠
+     */
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
         init();

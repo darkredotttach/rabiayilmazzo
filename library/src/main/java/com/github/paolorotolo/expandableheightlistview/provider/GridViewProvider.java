@@ -4,7 +4,6 @@ import com.github.paolorotolo.expandableheightlistview.ResourceTable;
 import ohos.agp.components.*;
 import ohos.agp.window.service.DisplayManager;
 import ohos.app.Context;
-import ohos.hiviewdfx.HiLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
 /**
  * @时间：2021/06/03
  * @描述：gridview适配器
- **/
+ */
 public class GridViewProvider extends BaseItemProvider {
     private final int columnCount;
     private List<Integer> list = new ArrayList();
@@ -26,11 +25,21 @@ public class GridViewProvider extends BaseItemProvider {
         width = DisplayManager.getInstance().getDefaultDisplay(context).get().getAttributes().width;
     }
 
+    /**
+     * 设置新的数据
+     *
+     * @param arrayList 新的集合数据
+     */
     public void setNewArrayList(ArrayList<Integer> arrayList) {
         this.list = list;
         notifyDataChanged();
     }
 
+    /**
+     * 获取集合数据
+     *
+     * @return list集合
+     */
     public List<Integer> getArrayList() {
         return list;
     }
@@ -41,8 +50,8 @@ public class GridViewProvider extends BaseItemProvider {
     }
 
     @Override
-    public Integer getItem(int i) {
-        return list.get(i);
+    public Integer getItem(int position) {
+        return list.get(position);
     }
 
     @Override
@@ -54,8 +63,8 @@ public class GridViewProvider extends BaseItemProvider {
     public Component getComponent(int position, Component component, ComponentContainer componentContainer) {
         final Component rootComponent;
         if (component == null) {
-            rootComponent = LayoutScatter.getInstance(componentContainer.getContext()).parse(ResourceTable.Layout_simple_grid_item, null,
-                    false);
+            rootComponent = LayoutScatter.getInstance(componentContainer.getContext()).
+                    parse(ResourceTable.Layout_simple_grid_item, null, false);
         } else {
             rootComponent = component;
         }

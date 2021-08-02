@@ -8,8 +8,11 @@ import ohos.agp.components.Text;
 import ohos.agp.utils.Color;
 import ohos.agp.window.service.Window;
 
+/**
+ * @时间：2021/06/16
+ * @描述：主页面
+ */
 public class MainAbility extends Ability implements Component.ClickedListener {
-
     @Override
     protected void onStart(Intent intent) {
         super.onStart(intent);
@@ -24,6 +27,9 @@ public class MainAbility extends Ability implements Component.ClickedListener {
         title.setText(getString(ResourceTable.String_app_name));
     }
 
+    /**
+     * 跳转默认页
+     */
     public void tryDefault() {
         Intent intent = new Intent();
         Operation operation = new Intent.OperationBuilder()
@@ -35,6 +41,9 @@ public class MainAbility extends Ability implements Component.ClickedListener {
         startAbility(intent);
     }
 
+    /**
+     * 跳转可折叠页
+     */
     public void tryExpandable() {
         Intent intent = new Intent();
         Operation operation = new Intent.OperationBuilder()
@@ -46,6 +55,9 @@ public class MainAbility extends Ability implements Component.ClickedListener {
         startAbility(intent);
     }
 
+    /**
+     * 跳转GridView页
+     */
     public void tryExpandableGridView() {
         Intent intent = new Intent();
         Operation operation = new Intent.OperationBuilder()

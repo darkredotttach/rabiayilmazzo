@@ -8,8 +8,13 @@ import ohos.agp.components.DirectionalLayout;
 import ohos.agp.components.Text;
 import ohos.agp.text.Font;
 import ohos.multimodalinput.event.KeyEvent;
+
 import java.util.ArrayList;
 
+/**
+ * @时间：2021/06/16
+ * @描述：gridview不折叠效果
+ */
 public class ExpandableGridView extends Ability {
     private ExpandableHeightGridView gridListContainer;
 
