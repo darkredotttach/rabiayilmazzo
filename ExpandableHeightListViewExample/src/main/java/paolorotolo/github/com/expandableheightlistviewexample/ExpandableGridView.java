@@ -12,8 +12,10 @@ import ohos.multimodalinput.event.KeyEvent;
 import java.util.ArrayList;
 
 /**
- * @时间：2021/06/16
- * @描述：gridview不折叠效果
+ * 可折叠gridview
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class ExpandableGridView extends Ability {
     private ExpandableHeightGridView gridListContainer;
