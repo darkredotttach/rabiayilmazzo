@@ -9,6 +9,12 @@ import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 
 import java.util.ArrayList;
 
+/**
+ * 不折叠自定义List
+ *
+ * @author ：hw
+ * @since ：2021/06/16
+ */
 public class ExpandableHeightListView extends ListContainer {
     private boolean expanded = false;
 

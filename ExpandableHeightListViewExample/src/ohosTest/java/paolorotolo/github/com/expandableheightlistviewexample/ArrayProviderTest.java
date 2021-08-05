@@ -7,8 +7,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 /**
- * @时间：2021/6/16
- * @描述：ArrayProvider单元测试
+ * ArrayProvider单元测试
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class ArrayProviderTest extends AbilitySlice {
     /**

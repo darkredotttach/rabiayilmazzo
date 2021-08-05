@@ -9,8 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @时间：2021/06/03
- * @描述：gridview适配器
+ * gridview适配器
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class GridViewProvider extends BaseItemProvider {
     private final int columnCount;
@@ -63,8 +65,8 @@ public class GridViewProvider extends BaseItemProvider {
     public Component getComponent(int position, Component component, ComponentContainer componentContainer) {
         final Component rootComponent;
         if (component == null) {
-            rootComponent = LayoutScatter.getInstance(componentContainer.getContext()).
-                    parse(ResourceTable.Layout_simple_grid_item, null, false);
+            rootComponent = LayoutScatter.getInstance(componentContainer.getContext()).parse(
+                    ResourceTable.Layout_simple_grid_item, null, false);
         } else {
             rootComponent = component;
         }

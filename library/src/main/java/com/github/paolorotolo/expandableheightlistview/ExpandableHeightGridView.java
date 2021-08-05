@@ -9,8 +9,10 @@ import ohos.app.Context;
 import java.util.ArrayList;
 
 /**
- * @时间：2021/06/16
- * @描述：不折叠自定义
+ * 不折叠自定义
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class ExpandableHeightGridView extends ListContainer {
     private TableLayoutManager manager;

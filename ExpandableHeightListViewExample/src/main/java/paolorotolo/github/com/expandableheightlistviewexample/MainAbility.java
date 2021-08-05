@@ -9,8 +9,10 @@ import ohos.agp.utils.Color;
 import ohos.agp.window.service.Window;
 
 /**
- * @时间：2021/06/16
- * @描述：主页面
+ * 主页面
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class MainAbility extends Ability implements Component.ClickedListener {
     @Override

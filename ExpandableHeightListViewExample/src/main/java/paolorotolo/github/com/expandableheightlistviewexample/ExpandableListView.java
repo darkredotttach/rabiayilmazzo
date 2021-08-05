@@ -11,8 +11,10 @@ import ohos.multimodalinput.event.KeyEvent;
 import java.util.ArrayList;
 
 /**
- * @时间：2021/06/16
- * @描述：折叠效果
+ * 折叠列表效果
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class ExpandableListView extends Ability {
     private ArrayList arrayList = new ArrayList<Integer>();

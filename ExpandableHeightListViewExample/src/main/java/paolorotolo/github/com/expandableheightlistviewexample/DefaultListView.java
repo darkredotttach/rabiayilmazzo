@@ -10,8 +10,10 @@ import ohos.multimodalinput.event.KeyEvent;
 import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 
 /**
- * @时间：2021/06/16
- * @描述：默认不折叠效果
+ * 默认不折叠效果
+ *
+ * @author ：hw
+ * @since ：2021/06/16
  */
 public class DefaultListView extends Ability {
     @Override
