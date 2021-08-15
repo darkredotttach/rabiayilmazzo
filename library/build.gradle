@@ -1,12 +1,6 @@
 apply plugin: 'com.huawei.ohos.library'
 //apply from: '../upload.gradle'
 
-rootProject.ext {
-    CUSTOM_ARTIFACT = ''
-    DEFAULT_GROUP_ID = 'com.gitee.chinasoft_ohos' //固定
-    DEFAULT_ARTIFACT_ID = 'expandableHeightListView' //项目ID，填写项目名称或模块名称
-    DEFAULT_VERSION = '0.0.1-SNAPSHOT' //版本号，发新版本时修改。未通过验收的需要发布SNAPSHOT版本，即在版本号末尾带上SNAPSHOT
-}
 ohos {
     compileSdkVersion 5
     defaultConfig {

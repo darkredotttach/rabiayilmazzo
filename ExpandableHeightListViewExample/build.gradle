@@ -2,17 +2,6 @@ apply plugin: 'com.huawei.ohos.hap'
 apply plugin: 'com.huawei.ohos.decctest'
 
 ohos {
-    signingConfigs {
-        debug {
-            storeFile file('../key/keystore.p12')
-            storePassword '00000018D98A7D9BAE03943F3D3A6D3D9BB5956320495E371A1A0980060AB297D3F5ED77842B626E'
-            keyAlias = 'KeyAlias'
-            keyPassword '00000018710E349D80813D777843BDFF09674261A25B42ADB19C7D89F4FB279F3FA95F9E985F12F0'
-            signAlg = 'SHA256withECDSA'
-            profile file('../key/ExpandableHeightListViewDebug.p7b')
-            certpath file('../key/keystore.cer')
-        }
-    }
     compileSdkVersion 5
     defaultConfig {
         compatibleSdkVersion 5
