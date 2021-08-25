@@ -2,6 +2,8 @@ package paolorotolo.github.com.expandableheightlistviewexample;
 
 import com.github.paolorotolo.expandableheightlistview.provider.ArrayProvider;
 import ohos.aafwk.ability.AbilitySlice;
+import ohos.hiviewdfx.HiLog;
+import ohos.hiviewdfx.HiLogLabel;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import java.util.ArrayList;
  * @since ：2021/06/16
  */
 public class ArrayProviderTest extends AbilitySlice {
+    private final HiLogLabel label = new HiLogLabel(HiLog.LOG_APP, 0x00201, "MY_TAG");
+
     /**
      * 适配器添加int类型数据
      */
@@ -23,7 +27,7 @@ public class ArrayProviderTest extends AbilitySlice {
         for (int i = 0; i < 20; i++) {
             itemsAdapter.add(i);
         }
-        System.out.print("adapter添加完成int类型数据=" + itemsAdapter.getCount());
+        HiLog.info(label, "adapter添加完成int类型数据=" + itemsAdapter.getCount());
     }
 
     /**
@@ -38,6 +42,6 @@ public class ArrayProviderTest extends AbilitySlice {
             arrayList.add(i);
         }
         itemsAdapter.add(arrayList);
-        System.out.print("adapter添加完成集合类型数据=" + itemsAdapter.getCount());
+        HiLog.info(label, "adapter添加完成集合类型数据=" + itemsAdapter.getCount());
     }
 }

@@ -26,13 +26,13 @@ package com.github.paolorotolo.expandableheightlistview.provider;
  * limitations under the License.
 
  */
+
 import com.github.paolorotolo.expandableheightlistview.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.agp.components.*;
 import ohos.app.Context;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,19 +88,6 @@ public class ArrayProvider<T> extends BaseItemProvider {
     }
 
     /**
-     * Constructor. This constructor will result in the underlying data collection being
-     *
-     * @param context            The current context.
-     * @param resource           The resource ID for a layout file containing a layout to use when
-     *                           instantiating views.
-     * @param textViewResourceId The id of the TextView within the layout resource to be populated
-     * @param objects            The objects to represent in the ListView.
-     */
-    public ArrayProvider(Context context, int resource, int textViewResourceId, T[] objects) {
-        this(context, resource, textViewResourceId, Arrays.asList(objects));
-    }
-
-    /**
      * Constructor
      *
      * @param context            The current context.
@@ -110,12 +97,12 @@ public class ArrayProvider<T> extends BaseItemProvider {
      * @param objects            The objects to represent in the ListView.
      */
     public ArrayProvider(Context context, int resource,
-            int textViewResourceId, List<T> objects) {
+                         int textViewResourceId, List<T> objects) {
         this(context, resource, textViewResourceId, objects, false);
     }
 
     private ArrayProvider(Context context, int resource, int textViewResourceId,
-            List<T> objects, boolean objsFromResources) {
+                          List<T> objects, boolean objsFromResources) {
         mContext = context;
         mResource = mDropDownResource = resource;
         mObjects = objects;
@@ -166,11 +153,11 @@ public class ArrayProvider<T> extends BaseItemProvider {
     }
 
     @Override
-    public T getItem(int position) {
+    public Optional<T> getItem(int position) {
         if (mObjects != null && position >= 0 && position < mObjects.size()) {
-            return mObjects.get(position);
+            return Optional.of(mObjects.get(position));
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -189,8 +176,8 @@ public class ArrayProvider<T> extends BaseItemProvider {
         }
         Component comLine = rootComponent.findComponentById(ResourceTable.Id_component);
         Text text = (Text) rootComponent.findComponentById(ResourceTable.Id_text);
-        final T item = getItem(pos);
-        text.setText(item.toString());
+        final Optional<T> item = getItem(pos);
+        text.setText(item.get().toString());
         if (pos == getCount() - 1) {
             comLine.setVisibility(Component.HIDE);
         } else {
