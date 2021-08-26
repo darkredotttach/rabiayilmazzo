@@ -97,12 +97,12 @@ public class ArrayProvider<T> extends BaseItemProvider {
      * @param objects            The objects to represent in the ListView.
      */
     public ArrayProvider(Context context, int resource,
-                         int textViewResourceId, List<T> objects) {
+             int textViewResourceId, List<T> objects) {
         this(context, resource, textViewResourceId, objects, false);
     }
 
     private ArrayProvider(Context context, int resource, int textViewResourceId,
-                          List<T> objects, boolean objsFromResources) {
+             List<T> objects, boolean objsFromResources) {
         mContext = context;
         mResource = mDropDownResource = resource;
         mObjects = objects;
