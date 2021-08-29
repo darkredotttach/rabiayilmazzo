@@ -27,7 +27,7 @@ public class ArrayProviderTest extends AbilitySlice {
         for (int i = 0; i < 20; i++) {
             itemsAdapter.add(i);
         }
-        HiLog.info(label, "adapter添加完成int类型数据=" + itemsAdapter.getCount());
+        HiLog.info(label, "adapter int type=" + itemsAdapter.getCount());
     }
 
     /**
@@ -42,6 +42,6 @@ public class ArrayProviderTest extends AbilitySlice {
             arrayList.add(i);
         }
         itemsAdapter.add(arrayList);
-        HiLog.info(label, "adapter添加完成集合类型数据=" + itemsAdapter.getCount());
+        HiLog.info(label, "adapter list type=" + itemsAdapter.getCount());
     }
 }
