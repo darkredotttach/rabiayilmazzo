@@ -6,7 +6,7 @@
 - 功能：ScrollView嵌套ListContainer不折叠
 - 项目移植状态：主功能完成
 - 调用差异：无
-- 开发版本：sdk5，DevEco Studio2.1 Release
+- 开发版本：sdk6，DevEco Studio2.2 Beta1
 - 基线版本：Release 1.0.0
 
 #### 效果演示

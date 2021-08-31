@@ -8,9 +8,9 @@ rootProject.ext {
     DEFAULT_VERSION = '0.0.1-SNAPSHOT' //版本号，发新版本时修改。未通过验收的需要发布SNAPSHOT版本，即在版本号末尾带上SNAPSHOT
 }
 ohos {
-    compileSdkVersion 5
+    compileSdkVersion 6
     defaultConfig {
-        compatibleSdkVersion 5
+        compatibleSdkVersion 6
     }
 }
 
