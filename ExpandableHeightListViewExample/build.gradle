@@ -2,9 +2,9 @@ apply plugin: 'com.huawei.ohos.hap'
 apply plugin: 'com.huawei.ohos.decctest'
 
 ohos {
-    compileSdkVersion 6
+    compileSdkVersion 5
     defaultConfig {
-        compatibleSdkVersion 6
+        compatibleSdkVersion 5
     }
 }
 

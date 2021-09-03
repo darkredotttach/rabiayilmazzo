@@ -44,25 +44,13 @@ import java.util.Optional;
  */
 public class ArrayProvider<T> extends BaseItemProvider {
     private final Object mLock = new Object();
-    private Context mContext;
-    private AbilitySlice slice;
     private ArrayList<T> mOriginalValues;
-    /**
-     * The resource indicating what views to inflate to display the content of this
-     * array adapter in a drop down widget.
-     */
-    private int mDropDownResource;
 
     /**
      * Contains the list of objects that represent the data of this ArrayProvider.
      * The content of this list is referred to as "the array" in the documentation.
      */
     private List<T> mObjects;
-
-    /**
-     * Indicates whether the contents of {@link #mObjects} came from static resources.
-     */
-    private boolean mObjectsFromResources;
 
     /**
      * Indicates whether or not {@link #notifyDataChanged()} must be called whenever
@@ -103,10 +91,8 @@ public class ArrayProvider<T> extends BaseItemProvider {
 
     private ArrayProvider(Context context, int resource, int textViewResourceId,
             List<T> objects, boolean objsFromResources) {
-        mContext = context;
-        mResource = mDropDownResource = resource;
+        mResource = resource;
         mObjects = objects;
-        mObjectsFromResources = objsFromResources;
     }
 
     /**
@@ -121,7 +107,6 @@ public class ArrayProvider<T> extends BaseItemProvider {
             } else {
                 mObjects.add(object);
             }
-            mObjectsFromResources = false;
         }
         if (mNotifyOnChange) {
             notifyDataChanged();
@@ -140,7 +125,6 @@ public class ArrayProvider<T> extends BaseItemProvider {
             } else {
                 mObjects.addAll(list);
             }
-            mObjectsFromResources = false;
         }
         if (mNotifyOnChange) {
             notifyDataChanged();

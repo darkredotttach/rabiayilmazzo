@@ -60,7 +60,7 @@ public class GridViewProvider extends BaseItemProvider {
      * @param arrayList 新的集合数据
      */
     public void setNewArrayList(ArrayList<Integer> arrayList) {
-        this.list = list;
+        this.list = arrayList;
         notifyDataChanged();
     }
 
