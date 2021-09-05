@@ -46,7 +46,7 @@ allprojects {
 
  ```
 
-在sdk5，DevEco Studio2.1 Release下项目可直接运行
+在sdk6，DevEco Studio2.2 Beta1下项目可直接运行
 如无法运行，删除项目.gradle,.idea,build,gradle,build.gradle文件，
 并依据自己的版本创建新项目，将新项目的对应文件复制到根目录下
 #### 使用说明
